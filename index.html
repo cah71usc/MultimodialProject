@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forest Fires and Prevention</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        video#bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        header {
+            background-color: rgba(216, 67, 21, 0.8);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+            border-radius: 10px;
+            animation: slideIn 1s ease-out;
+        }
+
+        h1, h2 {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        .prevention {
+            background-color: #ffccbc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .prevention:hover {
+            transform: scale(1.03);
+        }
+
+        .image-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        footer {
+            background-color: rgba(191, 54, 12, 0.9);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="https://www.videvo.net/videvo_files/converted/2014_07/preview/Wildfire.mp438925.webm" type="video/webm">
+        Your browser does not support HTML5 video.
+    </video>
+    
+
+    <header>
+        <h1>Human-Caused Forest Fires</h1>
+        <p>Understanding the Impact and How to Prevent Them</p>
+    </header>
+
+    <section class="image-section">
+        <h2>The Problem</h2>
+        <p>
+            Forest fires caused by human activity are increasingly destroying ecosystems. These fires can start from unattended campfires, discarded cigarettes, or even sparks from vehicles. The consequences are severe, leading to the destruction of habitats, killing countless plant species, and disturbing the natural balance.
+        </p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Forest_fire_in_California.jpg/640px-Forest_fire_in_California.jpg" alt="Forest Fire">
+    </section>
+
+    <section class="image-section">
+        <h2>Impact on Ecosystems</h2>
+        <p>
+            Fires destroy native plant life, which in turn affects the animals that rely on them. Soil quality decreases, water sources become polluted, and biodiversity takes a massive hit. Recovery can take decades, and some species may never return.
+        </p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Aftermath_of_forest_fire.jpg/640px-Aftermath_of_forest_fire.jpg" alt="Aftermath of Fire">
+    </section>
+
+    <section class="prevention">
+        <h2>How We Can Prevent Forest Fires</h2>
+        <ul>
+            <li>Never leave a campfire unattended. Make sure it's fully extinguished before leaving.</li>
+            <li>Properly dispose of cigarette butts—never toss them into dry grass or forest areas.</li>
+            <li>Avoid burning debris on windy days and always have water nearby.</li>
+            <li>Follow local fire regulations and report any suspicious activities.</li>
+            <li>Educate others about fire safety and responsible behavior in nature.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Interactive Fire Map</h2>
+        <p>View current forest fire incidents across the region:</p>
+        <iframe src="https://www.fireweatheravalanche.org/fire" title="Live Fire Map"></iframe>
+    </section>
+
+    <footer>
+        <p>Protect Our Forests. Preserve Life.</p>
+    </footer>
+</body>
+</html>
