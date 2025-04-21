@@ -1,146 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wildfire Awareness</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-      color: white;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forest Fires and Prevention</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            height: 100%;
+            overflow-x: hidden;
+            background: #000;
+        }
 
-    video.bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(50%);
-    }
+        video#bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            filter: brightness(60%);
+        }
 
-    .container {
-      padding: 2rem;
-      animation: fadeIn 2s ease-in;
-    }
+        header {
+            background-color: rgba(216, 67, 21, 0.8);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
 
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-    }
+        section {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+            border-radius: 10px;
+            animation: slideIn 1s ease-out;
+            transition: background-color 0.5s ease;
+        }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+        section:hover {
+            background-color: #ffe0b2;
+        }
 
-    section {
-      margin: 2rem 0;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
+        h1, h2 {
+            margin-bottom: 1rem;
+        }
 
-    section:hover {
-      transform: scale(1.02);
-    }
+        ul {
+            line-height: 1.8;
+        }
 
-    .quiz {
-      margin-top: 2rem;
-    }
+        .prevention {
+            background-color: #ffccbc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
 
-    .question {
-      margin-bottom: 1rem;
-    }
+        .prevention:hover {
+            transform: scale(1.03);
+            background-color: #ffe082;
+        }
 
-    button {
-      background: #f97316;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 0.5rem;
-    }
+        .image-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
 
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      border-radius: 10px;
-    }
+        footer {
+            background-color: rgba(191, 54, 12, 0.9);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
 
-    img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+        .quiz {
+            margin-top: 2rem;
+        }
+
+        .question {
+            margin-bottom: 1rem;
+        }
+
+        .question p {
+            font-weight: bold;
+        }
+
+        .question button {
+            background-color: #ef6c00;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin: 0.3rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .question button:hover {
+            background-color: #fb8c00;
+        }
+
+        .downloads a {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background-color: #d84315;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .downloads a:hover {
+            background-color: #e64a19;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
 </head>
-
 <body>
-  <video class="bg-video" autoplay muted loop>
-    <source src="https://www.videvo.net/videvo_files/converted/2016_08/preview/160707_Wildfire_1080p.mp492833.webm" type="video/webm">
-    Your browser does not support the video tag.
-  </video>
+    <video autoplay muted loop id="bg-video">
+        <source src="https://cdn.pixabay.com/vimeo/486301203/fire-forest-27416.mp4?width=1280&hash=62cf734a37613a1e3250b5f7d2442c12f95a66ff" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 
-  <div class="container">
     <header>
-      <h1>Preventing Wildfires Together</h1>
-      <p>Over 85% of wildfires in the U.S. are caused by human activities. Let's change that.</p>
+        <h1>Human-Caused Forest Fires</h1>
+        <p>Understanding the Impact and How to Prevent Them</p>
     </header>
 
-    <section>
-      <h2>Causes of Wildfires</h2>
-      <p>Human actions like unattended campfires, discarded cigarettes, and fireworks can ignite devastating wildfires. Understanding these causes is the first step to prevention.</p>
-      <img src="https://www.fs.usda.gov/sites/default/files/media_wysiwyg/SmokeyBearPoster.jpg" alt="Smokey Bear Prevention Poster">
+    <section class="image-section">
+        <h2>The Problem</h2>
+        <p>
+            Forest fires caused by human activity are increasingly destroying ecosystems. These fires can start from unattended campfires, discarded cigarettes, or even sparks from vehicles. The consequences are severe, leading to the destruction of habitats, killing countless plant species, and disturbing the natural balance. <br><br>
+            As urban development expands into wildlands, the likelihood of accidental fires grows. Even fireworks or improperly maintained electrical lines can spark massive blazes. Public education, responsible behavior, and updated infrastructure are essential to stop these tragedies before they start.
+        </p>
+        <img src="images/maxresdefault.jpg" alt="Forest Fire">
+    </section>
+
+    <section class="image-section">
+        <h2>Impact on Ecosystems</h2>
+        <p>
+            Fires destroy native plant life, which in turn affects the animals that rely on them. Soil quality decreases, water sources become polluted, and biodiversity takes a massive hit. Recovery can take decades, and some species may never return. <br><br>
+            In some regions, fires contribute to desertification, permanently altering landscapes. The smoke and ash can also cause long-term air quality problems for nearby communities. Protecting ecosystems from fire helps maintain balance in nature and supports healthy life for all creatures.
+        </p>
+        <img src="images/80133.avif" alt="Aftermath of Fire">
+    </section>
+
+    <section class="prevention">
+        <h2>How We Can Prevent Forest Fires</h2>
+        <ul>
+            <li>Never leave a campfire unattended. Make sure it's fully extinguished before leaving.</li>
+            <li>Properly dispose of cigarette butts—never toss them into dry grass or forest areas.</li>
+            <li>Avoid burning debris on windy days and always have water nearby.</li>
+            <li>Follow local fire regulations and report any suspicious activities.</li>
+            <li>Educate others about fire safety and responsible behavior in nature.</li>
+            <li>Keep vehicles off dry grass and maintain your car to prevent sparks or leaks.</li>
+        </ul>
     </section>
 
     <section>
-      <h2>What You Can Do</h2>
-      <ul>
-        <li>Completely extinguish campfires before leaving.</li>
-        <li>Dispose of cigarettes properly.</li>
-        <li>Use fire-safe alternatives to fireworks and open flames.</li>
-        <li>Follow local burn bans and fire regulations.</li>
-      </ul>
+        <h2>Interactive Fire Map</h2>
+        <p>View current forest fire incidents across the region:</p>
+        <iframe src="https://www.fireweatheravalanche.org/fire" title="Live Fire Map"></iframe>
     </section>
 
     <section>
-      <h2>Interactive Fire Map</h2>
-      <p>See where active wildfires are happening in real-time:</p>
-      <iframe src="https://www.fireweatheravalanche.org/fire" title="Interactive Fire Map"></iframe>
+        <h2>Local Fire Danger Alerts</h2>
+        <p>Stay aware of fire risk levels in your area. Refresh this section regularly to check for the latest fire danger alerts provided by the National Weather Service or regional emergency authorities:</p>
+        <iframe src="https://www.weather.gov/fire" title="Local Fire Danger Alerts"></iframe>
     </section>
 
     <section class="quiz">
-      <h2>Wildfire Awareness Quiz</h2>
-      <div class="question">
-        <p><strong>Q1:</strong> What percentage of wildfires in the U.S. are caused by humans?</p>
-        <button onclick="alert('Correct! Over 85% are caused by human activities.')">A. 85%</button>
-        <button onclick="alert('Incorrect. Its actually over 85%.')">B. 60%</button>
-        <button onclick="alert('Incorrect. Its actually over 85%.')">C. 30%</button>
-      </div>
+        <h2>Wildfire Safety Quiz</h2>
+        <div class="question">
+            <p>Q1: What percentage of forest fires are caused by human activities?</p>
+            <button onclick="alert('Correct! Over 85% of wildfires are human-caused.')">A. Over 85%</button>
+            <button onclick="alert('Incorrect. Try again!')">B. About 50%</button>
+            <button onclick="alert('Incorrect. Try again!')">C. Less than 30%</button>
+        </div>
+        <div class="question">
+            <p>Q2: What should you do before leaving a campfire site?</p>
+            <button onclick="alert('Correct! Always extinguish the fire completely.')">A. Extinguish it completely</button>
+            <button onclick="alert('Incorrect. That is unsafe.')">B. Leave it if it looks small</button>
+            <button onclick="alert('Incorrect. That\'s not safe practice.')">C. Cover it with leaves</button>
+        </div>
     </section>
 
-    <section>
-      <h2>Safer Alternatives</h2>
-      <p>Instead of fireworks, try laser light shows or glow sticks. Replace open flame cooking with portable electric stoves or grills. Share fire safety tips with friends and family.</p>
+    <section class="downloads">
+        <h2>Downloadable Safety Guides</h2>
+        <p>Download these guides to learn more about how to stay safe and prevent wildfires:</p>
+        <a href="guides/fire-safety-basics.pdf" download>Fire Safety Basics (PDF)</a>
+        <a href="guides/wildfire-preparedness.pdf" download>Wildfire Preparedness Plan (PDF)</a>
+        <a href="guides/fire-safe-camping.pdf" download>Fire-Safe Camping Tips (PDF)</a>
     </section>
-  </div>
+
+    <footer>
+        <p>Protect Our Forests. Preserve Life.</p>
+    </footer>
 </body>
-
 </html>
 
 
