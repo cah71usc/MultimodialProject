@@ -3,7 +3,7 @@
 <head>
 <style>
 parallax {
-background-image: url('download.jpg');
+background-image: url('img_parallax.jpg');
 height: 500px;
 background-attachment: fixed;
 background-position: center;

@@ -1,140 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wildfire Prevention</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wildfire Awareness</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    body, html {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #fef9f3, #dff0d8);
-      color: #333;
-      animation: fadeInBody 1.5s ease-in;
-    }
-    header {
-      background-color: #ff7043;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
       color: white;
-      padding: 1.5rem;
-      text-align: center;
-      animation: slideDown 1s ease-out;
-    }
-    main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-      animation: fadeInUp 1s ease-in-out;
-    }
-    h2 {
-      color: #d84315;
-    }
-    .fact-box, .tip-box {
-      background-color: #fff3e0;
-      border-left: 8px solid #ffa726;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-      animation: fadeInBox 0.8s ease-in;
-    }
-    .quiz {
-      background-color: #e8f5e9;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 2rem;
-      animation: pulse 2s infinite;
-    }
-    .quiz button {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #66bb6a;
-      border: none;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-    .quiz button:hover {
-      background-color: #43a047;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #ffe0b2;
-      color: #333;
-      animation: fadeInBody 1.5s ease-in;
     }
 
-    @keyframes fadeInBody {
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(50%);
+    }
+
+    .container {
+      padding: 2rem;
+      animation: fadeIn 2s ease-in;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    section {
+      margin: 2rem 0;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: scale(1.02);
+    }
+
+    .quiz {
+      margin-top: 2rem;
+    }
+
+    .question {
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background: #f97316;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes fadeInBox {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(102, 187, 106, 0.4); }
-      50% { box-shadow: 0 0 10px 10px rgba(102, 187, 106, 0); }
-    }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Preventing Wildfires: Our Role and Responsibility</h1>
-  </header>
-  <main>
+  <video class="bg-video" autoplay muted loop>
+    <source src="https://www.videvo.net/videvo_files/converted/2016_08/preview/160707_Wildfire_1080p.mp492833.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <header>
+      <h1>Preventing Wildfires Together</h1>
+      <p>Over 85% of wildfires in the U.S. are caused by human activities. Let's change that.</p>
+    </header>
+
     <section>
-      <h2>Did You Know?</h2>
-      <div class="fact-box">
-        <p>Humans are responsible for nearly <strong>85%</strong> of all wildfires in the United States. From unattended campfires to discarded cigarettes, our actions have significant consequences.</p>
-      </div>
+      <h2>Causes of Wildfires</h2>
+      <p>Human actions like unattended campfires, discarded cigarettes, and fireworks can ignite devastating wildfires. Understanding these causes is the first step to prevention.</p>
+      <img src="https://www.fs.usda.gov/sites/default/files/media_wysiwyg/SmokeyBearPoster.jpg" alt="Smokey Bear Prevention Poster">
     </section>
 
     <section>
-      <h2>Steps You Can Take</h2>
-      <div class="tip-box">
-        <ul>
-          <li>Completely extinguish campfires before leaving them.</li>
-          <li>Never discard cigarettes or matches on the ground.</li>
-          <li>Follow local guidelines for outdoor burning.</li>
-          <li>Maintain equipment and vehicles to prevent sparks.</li>
-          <li>Report unattended fires immediately.</li>
-        </ul>
-      </div>
+      <h2>What You Can Do</h2>
+      <ul>
+        <li>Completely extinguish campfires before leaving.</li>
+        <li>Dispose of cigarettes properly.</li>
+        <li>Use fire-safe alternatives to fireworks and open flames.</li>
+        <li>Follow local burn bans and fire regulations.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Interactive Fire Map</h2>
+      <p>See where active wildfires are happening in real-time:</p>
+      <iframe src="https://www.fireweatheravalanche.org/fire" title="Interactive Fire Map"></iframe>
     </section>
 
     <section class="quiz">
-      <h2>Quick Quiz: Are You a Fire Safety Pro?</h2>
-      <p>Click below to test your wildfire knowledge!</p>
-      <button onclick="alert('Correct! Keeping our forests safe starts with us.')">What % of wildfires are caused by humans?</button>
-      <br>
-      <button onclick="alert('Correct! Dousing it with water and stirring the ashes is best.')">How should you put out a campfire?</button>
+      <h2>Wildfire Awareness Quiz</h2>
+      <div class="question">
+        <p><strong>Q1:</strong> What percentage of wildfires in the U.S. are caused by humans?</p>
+        <button onclick="alert('Correct! Over 85% are caused by human activities.')">A. 85%</button>
+        <button onclick="alert('Incorrect. Its actually over 85%.')">B. 60%</button>
+        <button onclick="alert('Incorrect. Its actually over 85%.')">C. 30%</button>
+      </div>
     </section>
-  </main>
 
-  <section>
-    <h2>Interactive Fire Map</h2>
-    <p>View current forest fire incidents across the region:</p>
-    <iframe src="https://www.fireweatheravalanche.org/fire" title="Live Fire Map"></iframe>
-</section>
-
-  <footer>
-    <p>Be the solution, not the cause. Help prevent wildfires. 🔥🌲</p>
-  </footer>
+    <section>
+      <h2>Safer Alternatives</h2>
+      <p>Instead of fireworks, try laser light shows or glow sticks. Replace open flame cooking with portable electric stoves or grills. Share fire safety tips with friends and family.</p>
+    </section>
+  </div>
 </body>
+
 </html>
+
 
