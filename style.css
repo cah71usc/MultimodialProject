@@ -4,8 +4,11 @@ body, html {
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
+    background-color: #000;
     height: 100%;
     overflow-x: hidden;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png'), linear-gradient(to bottom, rgba(255, 87, 34, 0.1), rgba(0, 0, 0, 1));
+    background-blend-mode: overlay;
 }
 
 video#bg-video {
@@ -18,6 +21,18 @@ video#bg-video {
     object-fit: cover;
 }
 
+/* Fire Icon Styles */
+.fire-icon {
+    display: inline-block;
+    margin-right: 10px;
+    animation: flicker 1.5s infinite alternate;
+}
+
+.fire-icon img {
+    width: 32px;
+    height: 32px;
+}
+
 /* Header Styles */
 header {
     background-color: rgba(216, 67, 21, 0.8);
@@ -25,21 +40,28 @@ header {
     padding: 2rem;
     text-align: center;
     animation: fadeIn 2s ease-in-out;
+    background-image: url('https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 4px solid #ff5722;
 }
 
 /* Section Styles */
 section {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #333;
+    background-color: rgba(255, 87, 34, 0.8);
+    color: white;
     padding: 2rem;
     max-width: 1000px;
     margin: 2rem auto;
     border-radius: 10px;
     animation: slideIn 1s ease-out;
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.7);
 }
 
 h1, h2 {
     margin-bottom: 1rem;
+    color: #ff7043;
+    animation: pulseGlow 2s infinite;
 }
 
 ul {
@@ -47,29 +69,33 @@ ul {
 }
 
 .prevention {
-    background-color: #ffccbc;
+    background-color: rgba(255, 138, 101, 0.9);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: flickerSlow 4s infinite;
 }
 
 .prevention:hover {
     transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(255, 138, 101, 1);
 }
 
 .image-section img {
     max-width: 100%;
     border-radius: 10px;
     margin-top: 1rem;
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.7);
 }
 
 /* Footer Styles */
 footer {
-    background-color: rgba(191, 54, 12, 0.9);
+    background-color: rgba(183, 28, 28, 0.9);
     color: white;
     text-align: center;
     padding: 1rem;
+    border-top: 4px solid #ff5722;
 }
 
 /* Embedded Elements */
@@ -79,6 +105,7 @@ iframe {
     border: 0;
     border-radius: 10px;
     margin-top: 1rem;
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
 }
 
 /* Animation Keyframes */
@@ -92,9 +119,25 @@ iframe {
     to { transform: translateY(0); opacity: 1; }
 }
 
+@keyframes flicker {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.85; transform: scale(1.05); }
+}
+
+@keyframes flickerSlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.95; }
+}
+
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 5px #ff3d00, 0 0 10px #ff6e40; }
+    50% { text-shadow: 0 0 15px #ff3d00, 0 0 25px #ff6e40; }
+    100% { text-shadow: 0 0 5px #ff3d00, 0 0 10px #ff6e40; }
+}
+
 /* Hover and Transition Effects */
 a:hover, button:hover {
-    color: #ff5733;
+    color: #ffccbc;
     transition: color 0.3s ease-in-out;
 }
 
@@ -104,17 +147,18 @@ input[type="file"] {
 }
 
 .resources-section {
-    background-color: rgba(255, 244, 229, 0.9);
-    color: #333;
+    background-color: rgba(255, 112, 67, 0.9);
+    color: white;
     padding: 2rem;
     border-radius: 10px;
     margin: 2rem auto;
     max-width: 1000px;
     animation: fadeIn 1s ease-in;
+    box-shadow: 0 0 20px rgba(255, 112, 67, 0.7);
 }
 
 .resources-section h2, .resources-section h3 {
-    color: #b71c1c;
+    color: #ff7043;
 }
 
 .download-guides ul {
@@ -129,17 +173,19 @@ input[type="file"] {
 .download-guides a {
     text-decoration: none;
     font-weight: bold;
-    color: #d84315;
-    background-color: #ffe0b2;
+    color: white;
+    background-color: #d84315;
     padding: 10px 15px;
     border-radius: 5px;
     display: inline-block;
     transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
 }
 
 .download-guides a:hover {
-    background-color: #ffab91;
+    background-color: #ff7043;
     color: #fff;
+    box-shadow: 0 0 20px rgba(255, 112, 67, 0.9);
 }
 
 .fire-map iframe {
@@ -148,5 +194,6 @@ input[type="file"] {
     border: none;
     margin-top: 1rem;
     border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
 }
 

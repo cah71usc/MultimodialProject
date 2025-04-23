@@ -92,6 +92,44 @@
             from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
+        .quiz-section {
+            background-color: rgba(255, 87, 34, 0.9);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 1000px;
+            margin: 2rem auto;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .quiz-section h2 {
+            color: #fff;
+        }
+
+        .quiz-section label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .quiz-section button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #b71c1c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .quiz-section button:hover {
+            background-color: #e64a19;
+        }
+
+        .result {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -99,7 +137,6 @@
         <source src="BB_67753f38-befd-40a4-8d6a-a3aaf363b668.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
-
 
     <header>
         <h1>Human-Caused Forest Fires</h1>
@@ -139,11 +176,57 @@
         <iframe src="https://www.fireweatheravalanche.org/fire" title="Live Fire Map"></iframe>
     </section>
 
+    <section class="quiz-section">
+        <h2>Test Your Fire Safety Knowledge</h2>
+        <form id="fireQuiz">
+            <label>1. What percentage of wildfires in the U.S. are caused by humans?</label>
+            <input type="radio" name="q1" value="a"> 50%<br>
+            <input type="radio" name="q1" value="b"> 70%<br>
+            <input type="radio" name="q1" value="c"> 85%<br>
+            <input type="radio" name="q1" value="d"> 95%<br>
+
+            <label>2. Which of the following is a safe way to extinguish a campfire?</label>
+            <input type="radio" name="q2" value="a"> Leave it to burn out naturally<br>
+            <input type="radio" name="q2" value="b"> Pour water and stir ashes until cold<br>
+            <input type="radio" name="q2" value="c"> Cover with dirt and walk away<br>
+            <input type="radio" name="q2" value="d"> Let the wind put it out<br>
+
+            <label>3. What should you avoid doing on a windy day?</label>
+            <input type="radio" name="q3" value="a"> Having a picnic<br>
+            <input type="radio" name="q3" value="b"> Going hiking<br>
+            <input type="radio" name="q3" value="c"> Burning debris<br>
+            <input type="radio" name="q3" value="d"> Taking photos<br>
+
+            <button type="button" onclick="checkAnswers()">Submit Answers</button>
+            <div class="result" id="quizResult"></div>
+        </form>
+    </section>
+
     <footer>
         <p>Protect Our Forests. Preserve Life.</p>
     </footer>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: 'c',
+                q2: 'b',
+                q3: 'c'
+            };
+            let score = 0;
+            for (let question in answers) {
+                const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                if (userAnswer && userAnswer.value === answers[question]) {
+                    score++;
+                }
+            }
+            const result = document.getElementById('quizResult');
+            result.textContent = `You got ${score} out of 3 questions right.`;
+        }
+    </script>
 </body>
 </html>
+
 
 
 
